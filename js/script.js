@@ -38,7 +38,7 @@ while(checkDiff == false) {
 for(i=0; i<16; i++) {
     switch(difficolta1){
         case 'facile':
-        var numeroRandom = Math.floor(Math.random()*100)+1;
+        var numeroRandom = randomNu(1,100);
         if (randomNumber16.includes(numeroRandom)){
             i--;
         } else {
@@ -46,7 +46,7 @@ for(i=0; i<16; i++) {
         }
         break;
         case 'medio':
-            var numeroRandom = Math.floor(Math.random()*80)+1;
+            var numeroRandom = randomNu(1,80);
             if (randomNumber16.includes(numeroRandom)){
                 i--;
             } else {
@@ -54,7 +54,7 @@ for(i=0; i<16; i++) {
             }
         break;
         case 'difficile':
-            var numeroRandom = Math.floor(Math.random()*50)+1;
+            var numeroRandom = randomNu(1,50);
             if (randomNumber16.includes(numeroRandom)){
                 i--;
             } else {
@@ -115,13 +115,13 @@ if(difficolta1 == 'facile' ) {
         } 
     }
 } else {
-    difficolta1=checkDifficolta;
+    //difficolta1=checkDifficolta;
 }
 
 
+console.log(punteggio);
 
-
-
+alert('Hai totalizzato ' + punteggio + 'punti');
 
 
 
@@ -129,6 +129,11 @@ if(difficolta1 == 'facile' ) {
 
 
 /*************************************************************************************************/
+function randomNu(min,max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+
 function checkDifficolta(difficolta) {
     return difficolta = prompt('Inserisci: Facile , Medio , Diffcile. Per scegliere la difficolta.').toLowerCase().trim()
 }
