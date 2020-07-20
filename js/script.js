@@ -9,6 +9,10 @@ var usrNumber = [];
 //La terza per calcolare lo score dell utente ;
 var arrayUser = [];
 
+//punteggio
+
+var punteggio = 0;
+
 //Variabile a cui assegnare la funzione 
 var difficolta1 ;
 
@@ -63,7 +67,56 @@ for(i=0; i<16; i++) {
 }
 
 console.log(randomNumber16);
-//Richiedo all/user di inserire 
+//Richiedo all/user di inserire i numeri (100-16) e controllo che non inserisca due volte lo stsso numero , e che il numero non sia contenuto nei numeri randomGenerati 
+
+if(difficolta1 == 'facile' ) {
+    for(i=0; i < 84; i++) {
+        usrNumber = parseInt(prompt('Inserisci un NUMERO'));
+        if(isNaN(usrNumber) || usrNumber < 1 || usrNumber > 100) {
+            alert ('Inserisci un numero , superiore ad 1 ed inferiore a 100');
+        } else if (arrayUser.includes(usrNumber)) {
+            alert('Non puoi inserire lo stesso numero');
+        } else if (randomNumber16.includes(usrNumber)){
+            alert ('hai perso');
+            break;
+        } else {
+            arrayUser.push(usrNumber);
+            punteggio += 1;
+        } 
+    }
+}else if (difficolta1 == 'medio'){
+    for(i=0; i < 84; i++) {
+        usrNumber = parseInt(prompt('Inserisci un NUMERO'));
+        if(isNaN(usrNumber) || usrNumber < 1 || usrNumber > 80) {
+            alert ('Inserisci un numero , superiore ad 1 ed inferiore a 80');
+        } else if (arrayUser.includes(usrNumber)) {
+            alert('Non puoi inserire lo stesso numero');
+        } else if (randomNumber16.includes(usrNumber)){
+            alert ('hai perso');
+            break;
+        } else {
+            arrayUser.push(usrNumber);
+            punteggio += 1;
+        } 
+    }
+} else if(difficolta1 == 'difficile'){
+    for(i=0; i < 84; i++) {
+        usrNumber = parseInt(prompt('Inserisci un NUMERO'));
+        if(isNaN(usrNumber) || usrNumber < 1 || usrNumber > 50) {
+            alert ('Inserisci un numero , superiore ad 1 ed inferiore a 50');
+        } else if (arrayUser.includes(usrNumber)) {
+            alert('Non puoi inserire lo stesso numero');
+        } else if (randomNumber16.includes(usrNumber)){
+            alert ('hai perso');
+            break;
+        } else {
+            arrayUser.push(usrNumber);
+            punteggio += 1;
+        } 
+    }
+} else {
+    difficolta1=checkDifficolta;
+}
 
 
 
